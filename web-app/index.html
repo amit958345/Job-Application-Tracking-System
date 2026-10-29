@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobTrack — Application Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#">
+      <span class="brand-icon">J</span>
+      <span>JobTrack<span class="brand-dot">.</span></span>
+    </a>
+
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <a class="nav-item active" href="#dashboard">▦ <span>Dashboard</span></a>
+      <a class="nav-item" href="#applications">▤ <span>Applications</span></a>
+      <a class="nav-item" href="#applications">◷ <span>Interviews</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="profile-avatar">A</div>
+      <div>
+        <strong>My Workspace</strong>
+        <small>Job search tracker</small>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="dashboard">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">YOUR CAREER WORKSPACE</p>
+        <h1>Application Dashboard</h1>
+        <p class="subtitle">Keep your job search organized and moving forward.</p>
+      </div>
+      <button class="primary-button" id="addButton">＋ Add application</button>
+    </header>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <p>Total applications</p>
+        <div class="stat-value" id="totalCount">0</div>
+        <span class="stat-note">Across all companies</span>
+      </article>
+      <article class="stat-card">
+        <p>Interviews</p>
+        <div class="stat-value" id="interviewCount">0</div>
+        <span class="stat-note">Interview stage</span>
+      </article>
+      <article class="stat-card">
+        <p>Selected</p>
+        <div class="stat-value" id="selectedCount">0</div>
+        <span class="stat-note">Successful applications</span>
+      </article>
+      <article class="stat-card">
+        <p>Assessments</p>
+        <div class="stat-value" id="assessmentCount">0</div>
+        <span class="stat-note">Tests and evaluations</span>
+      </article>
+    </section>
+
+    <section class="panel" id="applications">
+      <div class="panel-heading">
+        <div>
+          <h2>Recent applications</h2>
+          <p class="subtitle">Track and manage your opportunities.</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search companies or roles...">
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="All">All statuses</option>
+          <option>Applied</option>
+          <option>Assessment</option>
+          <option>Interview</option>
+          <option>Selected</option>
+          <option>Rejected</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>COMPANY</th>
+              <th>JOB ROLE</th>
+              <th>DATE APPLIED</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="applicationTable"></tbody>
+        </table>
+      </div>
+      <p class="table-footer" id="resultCount"></p>
+    </section>
+
+    <p class="footer-note">JobTrack <span>•</span> Organize your next career move.</p>
+  </main>
+
+  <dialog id="applicationDialog">
+    <form id="applicationForm">
+      <div class="panel-heading">
+        <div>
+          <h2 id="dialogTitle">Add application</h2>
+          <p class="subtitle" id="dialogSubtitle">Enter your job details.</p>
+        </div>
+        <button type="button" class="close-button" id="closeDialog" aria-label="Close">×</button>
+      </div>
+
+      <input type="hidden" name="id">
+
+      <label>Company name
+        <input name="company" required maxlength="100" placeholder="e.g. Infosys">
+      </label>
+      <label>Job role
+        <input name="role" required maxlength="100" placeholder="e.g. Software Engineer">
+      </label>
+      <label>Application date
+        <input name="date" type="date" required>
+      </label>
+      <label>Status
+        <select name="status" required>
+          <option>Applied</option>
+          <option>Assessment</option>
+          <option>Interview</option>
+          <option>Selected</option>
+          <option>Rejected</option>
+        </select>
+      </label>
+      <label>Job description
+        <textarea name="description" rows="3" placeholder="Optional notes"></textarea>
+      </label>
+      <button class="primary-button" id="saveButton" type="submit">Save application</button>
+    </form>
+  </dialog>
+</body>
+</html>

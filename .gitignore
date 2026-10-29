@@ -1,0 +1,35 @@
+
+# Java compiled files
+*.class
+bin/
+out/
+
+# IDE files
+.vscode/
+.idea/
+.settings/
+.project
+.classpath
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Java build files
+target/
+build/
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Python environments, if any
+venv/
+.venv/
+__pycache__/
